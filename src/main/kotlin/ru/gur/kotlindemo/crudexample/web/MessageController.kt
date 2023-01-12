@@ -8,5 +8,13 @@ import org.springframework.web.bind.annotation.RestController
 class MessageController {
 
     @GetMapping("/") //фигурные скобки опущены, т.к. функция из одного expression
-    fun index(@RequestParam("name") name: String) = "Hello, $name!" //нет возвращаемого типа, берется сразу из выражения компилятором
+    fun index(@RequestParam("name") name: String) =
+        "Hello, $name!" //нет возвращаемого типа, берется сразу из выражения компилятором
+
+    @GetMapping("/message") //фигурные скобки опущены, т.к. функция из одного expression
+    fun index() = listOf(
+        Message(null, "firstMsg"),
+        Message(null, "secondMsg"),
+        Message("idTest", "thirdMsg")
+    )
 }
