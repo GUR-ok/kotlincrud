@@ -25,4 +25,8 @@ class MessageController(val service: MessageService) {
     @PostMapping("/message")
     fun createMessage(@RequestBody message: Message) =
         service.save(message)
+
+    @GetMapping("/{id}")
+    fun getMessageById(@PathVariable id: String): List<Message> =
+        service.findMessageById(id)
 }

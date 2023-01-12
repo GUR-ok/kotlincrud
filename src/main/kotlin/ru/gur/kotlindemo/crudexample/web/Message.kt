@@ -1,3 +1,7 @@
 package ru.gur.kotlindemo.crudexample.web
 
-data class Message(val id: String?, val text: String) //val - final, ? - nullable
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
+
+@Table("MESSAGES")
+data class Message(@Id var id: String?, val text: String) //val - final, ? - nullable

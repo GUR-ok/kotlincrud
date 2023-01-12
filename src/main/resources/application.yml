@@ -12,3 +12,7 @@ spring:
     init:
       schema: classpath:schema.sql
       mode: always
+
+app:
+  springdata:
+    enabled: true
