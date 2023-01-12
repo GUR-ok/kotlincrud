@@ -71,6 +71,20 @@
 		},
 		{
 			"name": "Create msg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var id = pm.response.text();\r",
+							"pm.collectionVariables.set(\"msgId\", id);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -96,6 +110,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get msg by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/{{msgId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"{{msgId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "msgId",
+			"value": ""
 		}
 	]
 }
